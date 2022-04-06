@@ -11,10 +11,16 @@ import './assets/css/global.css'
 
 //导入字体图标
 import './assets/fonts/iconfont.css'
-Vue.config.productionTip = false
 
+axios.interceptors.request.use(config => {
+    // console.log(config);
+    config.headers.Authorization = window.sessionStorage.getItem('token')
+    return config
+
+})
 Vue.prototype.$http = axios
-    // Vue.prototype.$message = Message
+    //发起请求前配置请求头，添加token
+Vue.config.productionTip = false
 new Vue({
     router,
     render: h => h(App)
