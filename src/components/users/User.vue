@@ -113,8 +113,6 @@
       </span>
     </el-dialog>
     <!-- 角色分配对话框 -->
-    <el-button type="text" @click="setRoleDialogVisible = true">点击打开 Dialog</el-button>
-
     <el-dialog title="角色分配" :visible.sync="setRoleDialogVisible" width="50%" @close="setRoleDialogClosed">
       <div>
         <p>当前的用户:{{userInfo.username}}</p>
