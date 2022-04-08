@@ -5,6 +5,7 @@ import Login from '../components/Login'
 import Home from '../components/Home'
 import Welcome from '../components/Welcome'
 import User from '../components/users/User'
+import Cate from '../components/goods/Cate'
 Vue.use(Router)
 
 const router = new Router({
@@ -17,7 +18,8 @@ const router = new Router({
             redirect: '/welcome',
             children: [
                 { path: '/welcome', component: Welcome },
-                { path: '/users', component: User }
+                { path: '/users', component: User },
+                { path: '/goods', component: Cate },
             ]
         },
     ]
