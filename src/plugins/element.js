@@ -24,6 +24,7 @@ import {
     Pagination,
     Dialog,
     MessageBox,
+    Tag,
 } from 'element-ui'
 
 Vue.use(Form)
@@ -48,6 +49,7 @@ Vue.use(TableColumn)
 Vue.use(Switch)
 Vue.use(Pagination)
 Vue.use(Dialog)
+Vue.use(Tag)
 
 //全局挂在vue上
 Vue.prototype.$message = Message
