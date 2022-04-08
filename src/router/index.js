@@ -22,7 +22,7 @@ const router = new Router({
             children: [
                 { path: '/welcome', component: Welcome },
                 { path: '/users', component: User },
-                { path: '/goods', component: Cate },
+                { path: '/categories', component: Cate },
                 { path: '/rights', component: Rights },
                 { path: '/roles', component: Roles },
             ]
