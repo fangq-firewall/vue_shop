@@ -32,6 +32,11 @@ import {
     Alert,
     Tabs,
     TabPane,
+    Steps,
+    Step,
+    Checkbox,
+    CheckboxGroup,
+    Upload,
 } from 'element-ui'
 
 Vue.use(Form)
@@ -64,6 +69,11 @@ Vue.use(Cascader)
 Vue.use(Alert)
 Vue.use(Tabs)
 Vue.use(TabPane)
+Vue.use(Steps)
+Vue.use(Step)
+Vue.use(Checkbox)
+Vue.use(CheckboxGroup)
+Vue.use(Upload)
 
 //全局挂在vue上
 Vue.prototype.$message = Message
