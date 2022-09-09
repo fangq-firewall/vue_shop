@@ -51,50 +51,50 @@
 </template>
 
 <script>
-	export default {
-		created() {
-			this.getMenuList()
-            this.activePath = window.sessionStorage.getItem('activePath')
-		},
-		data() {
-			return {
-				menulist: [],
-				iconsObj: {
-					125: 'iconfont icon-user',
-					103: 'iconfont icon-tijikongjian',
-					101: 'iconfont icon-shangpin',
-					102: 'iconfont icon-danju',
-					145: 'iconfont icon-baobiao',
-				},
-				//控制左侧折叠变量
-				iscollapse:false,
-                //激活子菜单高亮值
-                activePath:'',
-			}
-		},
-		methods: {
-			logout() {
-				window.sessionStorage.clear()
-				this.$router.push('/login')
-			},
-			//获取左侧菜单数据
-			async getMenuList() {
-				const { data: res } = await this.$http.get('menus')
-				// console.log(res)
-				if (res.meta.status !== 200) return this.$message.error(res.meta.msg)
-				this.menulist = res.data
-			},
-			//折叠左侧菜单
-			toggleCollapse() {
-				this.iscollapse = !this.iscollapse
-			},
-            //点击二级菜单高亮
-            saveMenuState(activePath){
-                window.sessionStorage.setItem('activePath',activePath)
-                 this.activePath = activePath
-            }
-		},
-	}
+export default {
+  created() {
+    this.getMenuList()
+    this.activePath = window.sessionStorage.getItem('activePath')
+  },
+  data() {
+    return {
+      menulist: [],
+      iconsObj: {
+        125: 'iconfont icon-user',
+        103: 'iconfont icon-tijikongjian',
+        101: 'iconfont icon-shangpin',
+        102: 'iconfont icon-danju',
+        145: 'iconfont icon-baobiao',
+      },
+      //控制左侧折叠变量
+      iscollapse: false,
+      //激活子菜单高亮值
+      activePath: '',
+    }
+  },
+  methods: {
+    logout() {
+      window.sessionStorage.clear()
+      this.$router.push('/login')
+    },
+    //获取左侧菜单数据
+    async getMenuList() {
+      const { data: res } = await this.$http.get('menus')
+      // console.log(res)
+      if (res.meta.status !== 200) return this.$message.error(res.meta.msg)
+      this.menulist = res.data
+    },
+    //折叠左侧菜单
+    toggleCollapse() {
+      this.iscollapse = !this.iscollapse
+    },
+    //点击二级菜单高亮
+    saveMenuState(activePath) {
+      window.sessionStorage.setItem('activePath', activePath)
+      this.activePath = activePath
+    },
+  },
+}
 </script>
 
 <style lang="less" scoped>

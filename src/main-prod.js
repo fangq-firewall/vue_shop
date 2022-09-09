@@ -1,16 +1,16 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router/index.js'
-import './plugins/element.js'
+//import './plugins/element.js'
 import axios from 'axios'
 //导入安装的样式插件
 import TreeTable from 'vue-table-with-tree-grid'
 //导入vue-quill-editor（富文本编辑器）
 import VueQuillEditor from 'vue-quill-editor'
 //导入vue-quill-editor的样式
-import 'quill/dist/quill.core.css'
-import 'quill/dist/quill.snow.css'
-import 'quill/dist/quill.bubble.css'
+//import 'quill/dist/quill.core.css'
+//import 'quill/dist/quill.snow.css'
+//import 'quill/dist/quill.bubble.css'
 
 axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
 
@@ -20,11 +20,22 @@ import './assets/css/global.css'
 //导入字体图标
 import './assets/fonts/iconfont.css'
 
+//导入进度条插件
+//import NProgress from 'nprogress'
+//导入进度条样式
+import 'nprogress/nprogress.css'
+
 axios.interceptors.request.use(config => {
     // console.log(config);
+    NProgress.start()
     config.headers.Authorization = window.sessionStorage.getItem('token')
     return config
 
+})
+axios.interceptors.response.use(config => {
+    //当进入response拦截器，表示请求已经结束，我们就结束进度条
+    NProgress.done()
+    return config
 })
 Vue.prototype.$http = axios
     //发起请求前配置请求头，添加token
