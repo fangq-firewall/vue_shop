@@ -114,6 +114,10 @@ export default {
 			span {
 				margin-left: 15px;
 			}
+      img {
+        border-radius: 50%;
+        box-shadow:0 0 50px 20px #ccc
+      }
 		}
 	}
 	.el-aside {
